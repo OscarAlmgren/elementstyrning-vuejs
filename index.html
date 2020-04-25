@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My first Vue app</title>
+  <title>Elementstyrning via SMS</title>
   <script src="https://unpkg.com/vue"></script>
 </head>
 <body>
   <div id="app">
-    {{ message }}
+  <input type="text" v-on:input="changeNumber">
+    <p>{{ number }}</p>
   </div>
 
   <script>
     var app = new Vue({
       el: '#app',
       data: {
-        message: 'Hello Vue!'
-      }
+        message: 'Hello Vue!',
+        number: '+46'
+      },
+      methods: {
+        changeNumber: function (event) {
+          this.number = event.target.value;
+        }
+      },
     })
   </script>
 </body>
