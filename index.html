@@ -2,12 +2,13 @@
 <html>
 <head>
   <title>Elementstyrning via SMS</title>
-  <script src="https://unpkg.com/vue"></script>
+  <script src="vue.js"></script>
 </head>
 <body>
   <div id="app">
-  <input type="text" v-on:input="changeNumber">
+  <input type="text" v-on:input="changeNumber"/>
     <p>{{ number }}</p>
+    <button type="input" v-on:click="showCode">Click me</button>
   </div>
 
   <script>
@@ -15,11 +16,15 @@
       el: '#app',
       data: {
         message: 'Hello Vue!',
-        number: '+46'
+        number: '+46',
+        code: 1234
       },
       methods: {
         changeNumber: function (event) {
           this.number = event.target.value;
+        },
+        showCode: function () {
+          console.log(this.code);
         }
       },
     })
